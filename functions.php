@@ -16,7 +16,7 @@ function get_question($post)
         $dbusername = "root";
         $dbpassword = "";
         $dbdatabase = "flag_quiz";
-    } elseif ($_SERVER['HTTP_HOST'] == "izzy.milestonedigital.co.uk") {
+    } elseif ($_SERVER['HTTP_HOST'] == "izzy.milestonecreative.co.uk") {
         // test site database details
         $dbserver = "sdb-w.hosting.stackcp.net";
         $dbusername = "izzyFlags-323133d67a";
