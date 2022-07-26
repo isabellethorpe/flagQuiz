@@ -10,8 +10,28 @@ function izzy_pre($printme, $title = false)
 // outputs flag question
 function get_question($post)
 {
+    if ($_SERVER['HTTP_HOST'] == "localhost/flagQuiz") {
+        // local database details
+        $dbserver = "localhost";
+        $dbusername = "root";
+        $dbpassword = "";
+        $dbdatabase = "flag_quiz";
+    } elseif ($_SERVER['HTTP_HOST'] == "izzy.milestonedigital.co.uk") {
+        // test site database details
+        $dbserver = "sdb-w.hosting.stackcp.net";
+        $dbusername = "izzyFlags-323133d67a";
+        $dbpassword = "fdkj-Hkds-632-hH7";
+        $dbdatabase = "izzyFlags-323133d67a";
+    }
+    elseif ($_SERVER['HTTP_HOST'] == "flagquiz.local") {
+        // test site database details
+        $dbserver = "127.0.0.1";
+        $dbusername = "root";
+        $dbpassword = "Linc0ln777";
+        $dbdatabase = "flagquiz";
+    }
     // connecting to database
-    $db = mysqli_connect("localhost", "root", "", "flag_quiz");
+    $db = mysqli_connect($dbserver, $dbusername, $dbpassword, $dbdatabase);
 
     // selecting all from flags table by random
     $sql = "SELECT * from flags ORDER BY RAND()";
